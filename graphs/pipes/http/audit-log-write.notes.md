@@ -86,7 +86,15 @@ want to record. Connect the step's result into `payload` and `subject_id`, and u
 
 ## Validation status
 
-The graph passes the repository validator and the production node-catalog check.
-It has not been freshly imported and executed, and no live write was made while
-adding it. The Subfork version used for a manual test is not recorded because no
-manual test was run.
+The graph passes the repository validator and the node-catalog check against the production catalog, and the Subfork server-side validate endpoint (`POST /graphs/validate`) accepted it on 2026-11-05.
+
+It was imported and executed once on subfork.com on 2026-11-05 by anthonyshafer@gmail.com, and the
+run completed. The run POSTed fixture values to the public test endpoint
+`https://jsonplaceholder.typicode.com/posts`, not a real audit sink, with no credentials. The
+endpoint answered 201 with an `id` of 101, which the graph returned as `record_id`, and a JSON
+object passed as `payload` was sent as an object. Its nodes, edges, and graph inputs and outputs
+match this file; the test run only filled in `sink_url`, `headers`, and the record fields. Whether
+the endpoint stored the record was not checked. Behavior against a real sink, idempotency, and
+header redaction in logs are unverified.
+
+No Subfork platform version could be found on the public API or site, so this note records the check date and the node catalog instead: on 2026-11-05 the catalog served 75 node types, and every node in this graph is version `1.0.0`.

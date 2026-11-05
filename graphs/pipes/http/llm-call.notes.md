@@ -86,10 +86,16 @@ and record which version the parent was tested with.
 
 ## Validation status
 
-The graph passes the repository validator and the production node-catalog check.
-It has not been freshly imported and executed against a live provider, and no
-provider request was made while adding it. Catalog validation is not evidence of
-provider execution. Whether placeholders nested inside the array and object of the
-request template resolve as intended has not been confirmed in a live run. The
-Subfork version used for a manual test is not recorded because no manual test was
-run.
+The graph passes the repository validator and the node-catalog check against the production catalog, and the Subfork server-side validate endpoint (`POST /graphs/validate`) accepted it on 2026-11-05.
+
+It was imported and executed once on subfork.com on 2026-11-05 by anthonyshafer@gmail.com, and the
+run completed. The run called the public echo endpoint `https://httpbin.org/anything`, not a
+model provider, and sent no credentials. Its nodes, edges, and graph inputs and outputs match this
+file. The test run used fixture values for the inputs and set `reply_path` to
+`json.messages.1.content`, which reads the prompt back from the echoed body, instead of the default
+`choices.0.message.content`. The run confirmed that placeholders nested inside the array and object
+of the request template resolve as intended: the system and user messages arrived with the
+fixture text. It did not exercise the default reply path or a real provider response, so provider
+behavior, billing, and rate limits are unverified.
+
+No Subfork platform version could be found on the public API or site, so this note records the check date and the node catalog instead: on 2026-11-05 the catalog served 75 node types, and every node in this graph is version `1.0.0`.

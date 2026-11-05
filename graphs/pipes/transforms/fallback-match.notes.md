@@ -36,10 +36,10 @@ side effects.
 | `items` | `json` | The joined records, or the fixture |
 
 Because the join is a left join, every `left` record appears in the result even without
-a match. Whether the fallback node treats an empty list as empty, and so returns the
-fixture, has not been confirmed. Run the graph once with a `left` list that has records
-and a `right` list that has none, and with an empty `left` list, and check which the
-output contains before depending on the fallback.
+a match. A run with records in `left` and an empty `right` returned the `left` records with `right`
+null and did not use the fixture. Whether the fallback node treats an empty list as empty, and so
+returns the fixture, has not been confirmed. Run the graph once with an empty `left` list and check
+whether the output is the fixture before depending on the fallback.
 
 ## Authentication and security
 
@@ -55,7 +55,16 @@ next transform or a table or JSON panel.
 
 ## Validation status
 
-The graph passes the repository validator and the production node-catalog check. It has
-not been freshly imported and executed. The empty-result behavior above is unverified.
-The Subfork version used for a manual test is not recorded because no manual test was
-run.
+The graph passes the repository validator and the node-catalog check against the production catalog, and the Subfork server-side validate endpoint (`POST /graphs/validate`) accepted it on 2026-11-05.
+
+It was imported and executed twice on subfork.com on 2026-11-05 by anthonyshafer@gmail.com, using
+fixture inputs only and no network, and both runs completed. In the first, `left` had two records
+and `right` had one match; the unmatched record came back with `right` null and the fixture was not
+used. In the second, `left` had one record and `right` was empty; the record came back with `right`
+null and the fixture was again not used. Neither run produced an empty join, so the fallback
+itself has not been exercised. Whether an empty `left` list returns the fixture is still
+unconfirmed; run it before depending on the fallback. Its nodes, edges, and graph inputs and
+outputs match this file; the test runs set the fallback value on the coalesce node instead of
+passing it through the `fixture` input.
+
+No Subfork platform version could be found on the public API or site, so this note records the check date and the node catalog instead: on 2026-11-05 the catalog served 75 node types, and every node in this graph is version `1.0.0`.

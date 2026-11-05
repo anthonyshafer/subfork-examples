@@ -55,8 +55,8 @@ as a render step or an upload. Connect `facts` to checks like a duration limit, 
 
 ## Validation status
 
-The graph passes the repository validator and the production node-catalog check. It has
-not been freshly imported and executed on a media worker, so the default mapping is
-unconfirmed, and whether the account plan includes the `media-worker` capability has not
-been verified. The Subfork version used for a manual test is not recorded because no
-manual test was run.
+The graph passes the repository validator and the node-catalog check against the production catalog, and the Subfork server-side validate endpoint (`POST /graphs/validate`) accepted it on 2026-11-05. It has not been executed on a media worker, so the default
+mapping is unconfirmed, and whether the account plan includes the `media-worker` capability has not
+been verified.
+
+No Subfork platform version could be found on the public API or site, so this note records the check date and the node catalog instead: on 2026-11-05 the catalog served 75 node types, and every node in this graph is version `1.0.0`.

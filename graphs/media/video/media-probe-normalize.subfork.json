@@ -78,7 +78,7 @@
     "metadata": {
       "template": {
         "category": "media",
-        "status": "mock-only-probe",
+        "status": "media-worker-probe",
         "summary": "Probes one audio or video artifact and projects the facts into a stable shape.",
         "composite_interface": {
           "inputs": {

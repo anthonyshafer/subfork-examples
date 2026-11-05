@@ -109,12 +109,10 @@ a media or video preview panel.
 
 ## Validation status
 
-The graph passes the repository validator and the production node-catalog check. It has
-not been freshly imported and executed against a live service, and no job was submitted
-while adding it. Whether placeholders that stand alone in a template value (`params` and
-`inputs`) keep their JSON type has not been confirmed in a live run. Whether a poll that
-reaches a failure status raises a node error or only returns the status has not been
-verified either. The Subfork version used for a manual test is not recorded because no
-manual test was run.
+The graph passes the repository validator and the node-catalog check against the production catalog, and the Subfork server-side validate endpoint (`POST /graphs/validate`) accepted it on 2026-11-05. It has not been executed, so it has not been run against a live
+job service and no job was submitted. Whether placeholders that stand alone in a template value
+(`params` and `inputs`) keep their JSON type has not been confirmed for this graph in a live run.
+Whether a poll that reaches a failure status raises a node error or only returns the status has not
+been verified either.
 
-Validated by the repository validator and the Subfork server-side validate endpoint, not yet run against a live job service.
+No Subfork platform version could be found on the public API or site, so this note records the check date and the node catalog instead: on 2026-11-05 the catalog served 75 node types, and every node in this graph is version `1.0.0`.
