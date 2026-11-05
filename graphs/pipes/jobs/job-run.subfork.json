@@ -217,7 +217,7 @@
     "metadata": {
       "template": {
         "category": "pipes",
-        "status": "network-probe",
+        "status": "mock-only-probe",
         "summary": "Generic asynchronous job over HTTP: submit a job request, then poll to a terminal status.",
         "composite_interface": {
           "inputs": {

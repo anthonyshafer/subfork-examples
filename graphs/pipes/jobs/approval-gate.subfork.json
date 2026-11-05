@@ -228,7 +228,7 @@
     "metadata": {
       "template": {
         "category": "pipes",
-        "status": "network-probe",
+        "status": "mock-only-probe",
         "summary": "Human approval requested as a job: submits an approval job and polls until approved, rejected, or expired.",
         "composite_interface": {
           "inputs": {

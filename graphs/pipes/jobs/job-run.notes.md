@@ -116,3 +116,5 @@ while adding it. Whether placeholders that stand alone in a template value (`par
 reaches a failure status raises a node error or only returns the status has not been
 verified either. The Subfork version used for a manual test is not recorded because no
 manual test was run.
+
+Validated by the repository validator and the Subfork server-side validate endpoint, not yet run against a live job service.

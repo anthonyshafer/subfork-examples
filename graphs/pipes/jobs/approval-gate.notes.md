@@ -108,3 +108,5 @@ not been freshly imported and executed against a live service, and no approval r
 was created while adding it. Whether a failed poll halts dependent nodes is unverified,
 as described above. The Subfork version used for a manual test is not recorded because
 no manual test was run.
+
+Validated by the repository validator and the Subfork server-side validate endpoint, not yet run against a live job service.

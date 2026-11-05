@@ -322,7 +322,7 @@
     "metadata": {
       "template": {
         "category": "pipes",
-        "status": "network-probe",
+        "status": "mock-only-probe",
         "summary": "Asynchronous media job that returns a file: runs the job chain, rebuilds the file URL, fetches the artifact.",
         "composite_interface": {
           "inputs": {

@@ -103,3 +103,5 @@ and no file downloaded while adding it. Whether the platform accepts the 250,000
 response cap, and whether a poll that reaches a failure status raises a node error or only
 returns the status, have not been verified. The Subfork version used for a manual test is
 not recorded because no manual test was run.
+
+Validated by the repository validator and the Subfork server-side validate endpoint, not yet run against a live job service.
